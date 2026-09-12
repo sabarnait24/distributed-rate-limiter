@@ -32,8 +32,8 @@ public class FixedWindowRateLimiter implements RateLimiter{
         Long result = redisTemplate.execute(
                 fixedWindowScript,
                 List.of(redisKey),
-                limit,
-                windowSeconds
+                String.valueOf(limit),
+                String.valueOf(windowSeconds)
         );
         return result == 1;
     }

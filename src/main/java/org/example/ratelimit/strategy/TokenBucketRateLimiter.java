@@ -29,9 +29,9 @@ public class TokenBucketRateLimiter implements RateLimiter{
         Long result = redisTemplate.execute(
                 tokenBucketScript,
                 List.of(redisKey),
-                capacity,
-                config.getRefillRatePerSec(),
-                now
+                String.valueOf(capacity),
+                String.valueOf(config.getRefillRatePerSec()),
+                String.valueOf(now)
         );
         return result == 1;
     }

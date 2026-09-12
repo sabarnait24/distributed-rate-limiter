@@ -4,6 +4,7 @@ import org.example.entity.OrderRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class ApplicationEndpoint {
 
     @PostMapping("/orders")

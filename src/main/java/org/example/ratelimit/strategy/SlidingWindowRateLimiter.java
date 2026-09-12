@@ -30,9 +30,9 @@ public class SlidingWindowRateLimiter implements RateLimiter{
         Long result = redisTemplate.execute(
                 slidingWindowScript,
                 List.of(redisKey),
-                limit,
-                windowSeconds,
-                currentTime
+                String.valueOf(limit),
+                String.valueOf(windowSeconds),
+                String.valueOf(currentTime)
         );
         return result == 1;
     }

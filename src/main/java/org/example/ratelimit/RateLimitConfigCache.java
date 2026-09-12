@@ -2,6 +2,7 @@ package org.example.ratelimit;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.example.ratelimit.entity.RateLimitConfigEntity;
 import org.example.ratelimit.enums.RateLimitAlgorithm;
 import org.example.ratelimit.model.RateLimitConfig;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 @Component
 @Getter
 public class RateLimitConfigCache {
@@ -32,10 +34,19 @@ public class RateLimitConfigCache {
         refresh();
     }
 
-    @Scheduled(fixedDelayString = "${ratelimit.refresh.ms:600000}")
+    @Scheduled(fixedDelayString = "${ratelimit.refresh.ms:60000}")
     public void refresh() {
+        log.info("========== RATE LIMIT REFRESH ==========");
         List<RateLimitConfigEntity> entities = repository.findAll();
-        entities.forEach(e -> cache.put(e.getRouteKey(), toModel(e)));
+        entities.forEach(e -> {
+            log.info(
+                    "route={} limit={}",
+                    e.getRouteKey(),
+                    e.getRequestLimit()
+            );
+
+            cache.put(e.getRouteKey(), toModel(e));
+        });
     }
 
     public RateLimitConfig resolve(String routeKey) {
