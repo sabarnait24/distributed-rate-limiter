@@ -7,5 +7,7 @@ data:
   SPRING_DATASOURCE_USERNAME: {{ .Values.env.SPRING_DATASOURCE_USERNAME | quote }}
   SPRING_REDIS_HOST: {{ .Values.env.SPRING_REDIS_HOST | quote }}
   SPRING_REDIS_PORT: {{ .Values.env.SPRING_REDIS_PORT | quote }}
+  SPRING_DATA_REDIS_HOST: { { .Values.env.SPRING_REDIS_HOST | quote } }
+  SPRING_DATA_REDIS_PORT: { { .Values.env.SPRING_REDIS_PORT | quote } }
   RATELIMIT_REFRESH_MS: {{ .Values.env.RATELIMIT_REFRESH_MS | quote }}
   JAVA_TOOL_OPTIONS: {{ .Values.env.JAVA_TOOL_OPTIONS | quote }}
