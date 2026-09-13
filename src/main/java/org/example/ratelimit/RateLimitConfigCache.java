@@ -34,7 +34,7 @@ public class RateLimitConfigCache {
         refresh();
     }
 
-    @Scheduled(fixedDelayString = "${ratelimit.refresh.ms:60000}")
+    @Scheduled(fixedDelayString = "${ratelimit.refresh.ms:600000}")
     public void refresh() {
         log.info("========== RATE LIMIT REFRESH ==========");
         List<RateLimitConfigEntity> entities = repository.findAll();

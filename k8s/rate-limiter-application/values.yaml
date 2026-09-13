@@ -17,7 +17,7 @@ resources:
     memory: 256Mi
   limits:
     cpu: 500m
-    memory: 1Gi
+    memory: 512Mi
 
 
 probes:
@@ -30,12 +30,11 @@ probes:
     periodSeconds: 10
 
 env:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://configdb-postgresql:5432/ratelimitdb
-  SPRING_DATASOURCE_USERNAME: ratelimit
-  SPRING_REDIS_HOST: redis-master
+  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/ratelimit"
+  SPRING_DATASOURCE_USERNAME: "root"
+  SPRING_REDIS_HOST: "redis-master"
   SPRING_REDIS_PORT: "6379"
   RATELIMIT_REFRESH_MS: "300000"
-  JAVA_TOOL_OPTIONS : "-Xms128m -Xmx512m"
-
+  JAVA_TOOL_OPTIONS: "-Xms128m -Xmx256m"
 secret:
   SPRING_DATASOURCE_PASSWORD: ratelimit123
