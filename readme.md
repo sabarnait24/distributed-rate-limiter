@@ -68,4 +68,4 @@ host = 5  , ramp up = 5 , host = minikube svc url
 
 ### Grafana Monitoring Metrics
 
-![Grafana Dashboard](./images/grafana-dashboard.png)
+![Grafana Dashboard](images/grafana-dashboard.png)
