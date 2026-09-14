@@ -1,6 +1,6 @@
-# 🚀 Spring Boot Rate Limiter on Kubernetes (Minikube)
+# 🚀 Distributed Rate Limiter with Spring Boot, Redis & Kubernetes
 
-A high-performance Spring Boot Rate Limiter application deployed using Helm on Minikube, monitored by standalone Docker containers running Prometheus and Grafana, and load-tested using Locust.
+A distributed rate limiter built with Spring Boot and Redis, deployed on Kubernetes using Helm and Minikube. The application supports endpoint- and user-level rate limiting, with Prometheus and Grafana for monitoring and Locust for load testing.
 
 ---
 
