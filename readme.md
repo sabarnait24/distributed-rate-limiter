@@ -19,8 +19,6 @@ Ensure the following tools and runtime versions are installed on your system:
 
 ## 🛠️ Step-by-Step Setup & Execution
 
-### 1. Run Host Infrastructure & Monitoring Stack
-```powershell
 
 # Create dedicated Docker network for monitoring
 docker network create monitoring
@@ -68,4 +66,4 @@ host = 5  , ramp up = 5 , host = minikube svc url
 
 ### Grafana Monitoring Metrics
 
-![Grafana Dashboard](images/grafana-dashboard.png)
+![Grafana Dashboard](./images/grafana-dashboard.png)
