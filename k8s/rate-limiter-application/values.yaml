@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: rate-limiter-app
-  tag: "1.0.3"
+  tag: "1.0.4"
   pullPolicy: IfNotPresent
 
 service:
@@ -13,11 +13,11 @@ service:
 
 resources:
   requests:
-    cpu: 100m
-    memory: 256Mi
+    cpu: "250m"
+    memory: "512Mi"
   limits:
-    cpu: 500m
-    memory: 512Mi
+    cpu: "1000m"
+    memory: "1Gi"
 
 
 probes:
@@ -30,11 +30,12 @@ probes:
     periodSeconds: 10
 
 env:
-  SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/ratelimit"
+  SPRING_DATASOURCE_URL: "jdbc:mysql://host.minikube.internal:3306/ratelimit"
   SPRING_DATASOURCE_USERNAME: "root"
-  SPRING_REDIS_HOST: "redis-master"
+  SPRING_REDIS_HOST: "host.minikube.internal"
   SPRING_REDIS_PORT: "6379"
-  RATELIMIT_REFRESH_MS: "300000"
+  RATELIMIT_REFRESH_MS: "600000"
   JAVA_TOOL_OPTIONS: "-Xms128m -Xmx256m"
+
 secret:
   SPRING_DATASOURCE_PASSWORD: "mysql123"

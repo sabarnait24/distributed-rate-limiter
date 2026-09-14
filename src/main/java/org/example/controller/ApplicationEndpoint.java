@@ -1,24 +1,26 @@
 package org.example.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.entity.OrderRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class ApplicationEndpoint {
 
     @PostMapping("/orders")
-    public String createOrder(@RequestBody OrderRequest request) {
-        return "Order created";
+    public void createOrder(@RequestBody OrderRequest request) {
+        log.info("Order created");
     }
 
     @GetMapping("/orders/{orderId}")
-    public String getOrder(@PathVariable String orderId) {
-        return "Order " + orderId + " fetched successfully";
+    public void getOrder(@PathVariable String orderId) {
+        log.info("Order " + orderId + " fetched successfully");
     }
 
     @GetMapping("/users/{userId}/profile")
-    public String getUserProfile(@PathVariable String userId) {
-        return "Profile for user " + userId;
+    public void getUserProfile(@PathVariable String userId) {
+        log.info("Profile for user {} " , userId);
     }
 }

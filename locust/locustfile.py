@@ -12,7 +12,7 @@ for i in range(101, 106):
 
 class RateLimitUser(HttpUser):
 
-    wait_time = between(0.2, 0.5)
+    wait_time = between(0.2, 0.3)
 
     def on_start(self):
         self.api_key = user_ids.get()
