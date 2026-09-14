@@ -63,7 +63,9 @@ host = 5  , ramp up = 5 , host = minikube svc url
 ## 📈 Observability & Test Visuals
 
 ### Locust Load Testing
+
 ![Locust Dashboard](./images/locust-dashboard.png)
 
 ### Grafana Monitoring Metrics
+
 ![Grafana Dashboard](./images/grafana-dashboard.png)
